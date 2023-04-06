@@ -5,12 +5,13 @@ import bstu.by.lisunkova.server_healthtracker.model.entity.Step;
 import bstu.by.lisunkova.server_healthtracker.model.entity.StepPK;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface StepRepository extends JpaRepository<Step, StepPK> {
+public interface StepRepository extends JpaRepository<Step, StepPK>, PagingAndSortingRepository<Step,StepPK> {
     @Override
     List<Step> findAll();
 

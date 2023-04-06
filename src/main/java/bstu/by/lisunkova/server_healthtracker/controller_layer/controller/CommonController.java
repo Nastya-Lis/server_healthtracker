@@ -6,7 +6,9 @@ import bstu.by.lisunkova.server_healthtracker.model.entity.CommonEntity;
 import bstu.by.lisunkova.server_healthtracker.model.repository.IRepository;
 import bstu.by.lisunkova.server_healthtracker.model.service.CommonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Pageable;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -30,6 +32,12 @@ public class CommonController<E extends CommonEntity, R extends IRepository<E>,
     public List<D> getAll(){
         return mapper.entitiesToDtoes(service.viewAll());
     }
+
+   /* @GetMapping("/all_page")
+    public List<D> getAllByPage(@RequestParam Integer page, @RequestParam Integer size){
+        Pageable pgRequest = PageRequest.of(page,size);
+        return mapper.entitiesToDtoes(service.viewAllByPage(pgRequest));
+    }*/
 
 
     @GetMapping("/{id}")

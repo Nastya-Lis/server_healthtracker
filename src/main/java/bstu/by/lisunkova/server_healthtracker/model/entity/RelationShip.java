@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class Friend extends CommonEntity {
+public class RelationShip extends CommonEntity {
 
     @Id
     @GeneratedValue
@@ -18,9 +18,8 @@ public class Friend extends CommonEntity {
     private int friendStatus;
 
 
-    //TODO как-то захардкодить значения статуса, мб сделать enum значений
     @Basic
-    @Column(name = "friend_status")
+    @Column(name = "relation_status")
     public int getFriendStatus() {
         return friendStatus;
     }
@@ -33,7 +32,7 @@ public class Friend extends CommonEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Friend friend = (Friend) o;
+        RelationShip friend = (RelationShip) o;
         return friendStatus == friend.friendStatus;
     }
 

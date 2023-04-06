@@ -17,4 +17,8 @@ public class ExerciseService extends CommonService<Exercise, ExerciseRepository>
     public List<Exercise> getFavouritesExercisesUser(String user){
         return repository.favouritesUserExercises(user);
     }
+
+    public void addNewFavExerciseToUser(String user, String exercise){
+        repository.addFavouriteExerciseToUser(user, exercise);
+    }
 }
